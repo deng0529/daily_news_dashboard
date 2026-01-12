@@ -7,7 +7,7 @@ openai:
 
 gcp:
   project_id: daily-news-dash
-  bigquery_key_path: daily-news-dash-29c76d026816.json
+  bigquery_key_path: daily-news-dash-9b8e551d0116.json
   bigquery:
     dataset_id: mynews
     uk_table_id: dailynewsraw

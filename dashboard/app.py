@@ -87,7 +87,7 @@ st.title("一页之间 | In One Page")
 # ======================
 # FastAPI 地址（替换成你部署的 URL）
 # ======================
-FASTAPI_URL = "http://127.0.0.1:8000/news"
+FASTAPI_URL = "https://daily-news-dashboard.onrender.com" # http://127.0.0.1:8000/news
 
 # ======================
 # 日期选择器
