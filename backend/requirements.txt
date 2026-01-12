@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+requests
+feedparser
+pandas
+pyarrow
+duckdb
+google-cloud-storage
+openai
+python-dotenv

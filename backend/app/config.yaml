@@ -1,0 +1,16 @@
+env: dev
+debug: false
+
+openai:
+  model: gpt-4
+  summary_max_chars: 30
+
+gcp:
+  project_id: daily-news-dash
+  bigquery_key_path: daily-news-dash-29c76d026816.json
+  bigquery:
+    dataset_id: mynews
+    uk_table_id: dailynewsraw
+
+news:
+  uk_top_n: 5
