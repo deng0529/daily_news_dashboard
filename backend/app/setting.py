@@ -61,7 +61,7 @@ def get_settings() -> Settings:
         GCP_PROJECT_ID=yaml_cfg["gcp"]["project_id"],
         BIGQUERY_DATASET=yaml_cfg["gcp"]["bigquery"]["dataset_id"],
         UK_TABLE_ID=yaml_cfg["gcp"]["bigquery"]["uk_table_id"],
-        BIGQUERY_KEY_PATH=BASE_DIR / yaml_cfg["gcp"]["bigquery_key_path"],
+        BIGQUERY_KEY_PATH= BASE_DIR / "app/bigquery_key" /yaml_cfg["gcp"]["bigquery_key_path"],
 
         UK_NEWS_TOP_N=yaml_cfg["news"]["uk_top_n"],
         )
