@@ -11,3 +11,4 @@ app.include_router(news.router, prefix="/news", tags=["news"])
 @app.get("/")
 def root():
     return {"message": "FastAPI is running!"}
+

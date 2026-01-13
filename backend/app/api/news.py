@@ -6,7 +6,7 @@ from datetime import date
 
 router = APIRouter()
 
-@router.post("/update")
+@router.post("/news/update")
 def update_uk_news():
     s = get_settings()
     if news_exists_today(s.BIGQUERY_DATASET, s.UK_TABLE_ID):
@@ -34,7 +34,7 @@ def update_uk_news():
             "news": news_list
         }
 
-@router.get("/{news_date}")
+@router.get("/news/{news_date}")
 def get_news_by_date(news_date: date):
     s = get_settings()
     if news_exists_today(s.BIGQUERY_DATASET, s.UK_TABLE_ID, news_date):
