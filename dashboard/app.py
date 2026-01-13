@@ -92,7 +92,7 @@ FASTAPI_URL = "https://daily-news-dashboard.onrender.com/news" # http://127.0.0.
 # ======================
 # 日期选择器
 # ======================
-# selected_date = st.date_input("选择日期", date.today())
+selected_date = st.date_input("选择日期", date.today())
 
 # ======================
 # 获取新闻函数
@@ -136,9 +136,9 @@ if "news_list" not in st.session_state:
 # ======================
 # 选择日期后更新新闻
 # ======================
-# if selected_date != date.today() or "display_date" not in st.session_state:
-#     st.session_state.news_list = fetch_news_by_date(selected_date)
-#     st.session_state.display_date = selected_date
+if selected_date != date.today() or "display_date" not in st.session_state:
+    st.session_state.news_list = fetch_news_by_date(selected_date)
+    st.session_state.display_date = selected_date
 
 news_list = st.session_state.news_list
 
@@ -204,15 +204,18 @@ image_list = [
     BASE_DIR / "imagelist" / "lambhotpot.png",
 ]
 
-# for i in range(0, len(image_list), 2):
-#     col1, col2 = st.columns(2)
-#
-#     with col1:
-#         st.image(image_list[i], width="stretch")
-#
-#     if i + 1 < len(image_list):
-#         with col2:
-#             st.image(image_list[i + 1], width="stretch")
+# for big screen
+for i in range(0, len(image_list), 2):
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.image(image_list[i], width="stretch")
+
+    if i + 1 < len(image_list):
+        with col2:
+            st.image(image_list[i + 1], width="stretch")
+
+# for phone screen
 for img_path in image_list:
     if img_path.exists():
         img = st.image(img_path, width="stretch")
