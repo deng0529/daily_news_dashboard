@@ -216,11 +216,11 @@ for i in range(0, len(image_list), 2):
             st.image(image_list[i + 1], width="stretch")
 
 # for phone screen
-for img_path in image_list:
-    if img_path.exists():
-        img = st.image(img_path, width="stretch")
-    else:
-        st.error(f"图片未找到: {img_path}")
+# for img_path in image_list:
+#     if img_path.exists():
+#         img = st.image(img_path, width="stretch")
+#     else:
+#         st.error(f"图片未找到: {img_path}")
 st.markdown(
     '<div class="body-text">我们私厨的用餐环境和招牌羊肉锅。有兴趣的朋友可以访问我们私厨网站： https://deng0529.github.io/ifood-kitchen/index-zh.html。</div>',
     unsafe_allow_html=True
