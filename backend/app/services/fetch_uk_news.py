@@ -2,7 +2,7 @@ import json
 import feedparser
 import requests
 from openai import OpenAI
-from backend.app.setting import get_settings
+from app.setting import get_settings
 from bs4 import BeautifulSoup
 
 

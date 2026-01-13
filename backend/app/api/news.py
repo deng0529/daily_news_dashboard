@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from backend.app.services.fetch_uk_news import summarize_news_batch
-from backend.app.services.storage_gcs import news_exists_today, fetch_today_news, insert_news_to_bigquery
-from backend.app.setting import get_settings
+from app.services.fetch_uk_news import summarize_news_batch
+from app.services.storage_gcs import news_exists_today, fetch_today_news, insert_news_to_bigquery
+from app.setting import get_settings
 from datetime import date
 
 router = APIRouter()

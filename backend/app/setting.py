@@ -2,7 +2,7 @@ from functools import lru_cache
 from pathlib import Path
 import yaml
 
-from pydantic import Field
+# from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # 项目根目录（假设结构是 root/app/setting.py）

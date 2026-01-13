@@ -1,5 +1,5 @@
 from google.cloud import bigquery
-from backend.app.setting import get_settings
+from app.setting import get_settings
 from dotenv import load_dotenv
 import datetime
 from datetime import date

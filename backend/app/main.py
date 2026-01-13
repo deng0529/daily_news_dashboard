@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from backend.app.api import news
+from app.api import news
 
 app = FastAPI(title="Daily News Dashboard API")
 
