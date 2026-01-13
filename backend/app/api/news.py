@@ -14,7 +14,7 @@ def update_uk_news():
             dataset_id=s.BIGQUERY_DATASET,
             table_id=s.UK_TABLE_ID
         )
-        print("Exist news:", news_list)
+        print("Existed news:", news_list)
         return {
             "date": date.today().isoformat(),
             "news": news_list
