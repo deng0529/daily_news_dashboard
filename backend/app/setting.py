@@ -1,3 +1,5 @@
+import json
+import os
 from functools import lru_cache
 from pathlib import Path
 import yaml
@@ -28,7 +30,8 @@ class Settings(BaseSettings):
     GCP_PROJECT_ID: str
     BIGQUERY_DATASET: str
     UK_TABLE_ID: str
-    BIGQUERY_KEY_PATH: Path
+    # BIGQUERY_KEY_PATH: Path
+    BIGQUERY_CREDENTIALS: dict  # ← store the JSON dict
 
     # ----------------
     # News
@@ -50,6 +53,11 @@ def load_yaml_config() -> dict:
 @lru_cache()
 def get_settings() -> Settings:
     yaml_cfg = load_yaml_config()
+    # Load BigQuery key from ENV variable on Render
+    bigquery_key_json_str = os.environ.get("BIGQUERY_KEY_JSON")
+    if not bigquery_key_json_str:
+        raise RuntimeError("BIGQUERY_KEY_JSON environment variable not set")
+    bigquery_key = json.loads(bigquery_key_json_str)
 
     return Settings(
         ENV=yaml_cfg["env"],
@@ -61,7 +69,7 @@ def get_settings() -> Settings:
         GCP_PROJECT_ID=yaml_cfg["gcp"]["project_id"],
         BIGQUERY_DATASET=yaml_cfg["gcp"]["bigquery"]["dataset_id"],
         UK_TABLE_ID=yaml_cfg["gcp"]["bigquery"]["uk_table_id"],
-        BIGQUERY_KEY_PATH= Path("app/bigquery_key") / yaml_cfg["gcp"]["bigquery_key_path"],
-
+        # BIGQUERY_KEY_PATH= Path("app/bigquery_key") / yaml_cfg["gcp"]["bigquery_key_path"],
+        BIGQUERY_CREDENTIALS=bigquery_key,  # use credentials dict
         UK_NEWS_TOP_N=yaml_cfg["news"]["uk_top_n"],
         )

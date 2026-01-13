@@ -1,4 +1,5 @@
 from google.cloud import bigquery
+from google.oauth2 import service_account
 from app.setting import get_settings
 from dotenv import load_dotenv
 import datetime
@@ -11,10 +12,19 @@ rows = []
 
 def get_bigquery_client():
     s = get_settings()
-    return bigquery.Client.from_service_account_json(
-        str(s.BIGQUERY_KEY_PATH),
-        project=s.GCP_PROJECT_ID,
+    credentials = service_account.Credentials.from_service_account_info(
+        s.BIGQUERY_CREDENTIALS
     )
+    client = bigquery.Client(
+        project=s.GCP_PROJECT_ID,
+        credentials=credentials
+    )
+    return client
+
+    # return bigquery.Client.from_service_account_json(
+    #     str(s.BIGQUERY_CREDENTIALS),
+    #     project=s.GCP_PROJECT_ID,
+    # )
 
 def news_exists_today(dataset_id: str, table_id: str, news_date: date = None) -> bool:
 
